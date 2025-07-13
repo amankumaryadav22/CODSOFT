@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }.calculator {
+  background: #1e1e2f;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  width: 350px;
+  color: #fff;
+  transition: background 0.5s ease;
+}
+
+.display {
+  background: #0d0d1a;
+  color: #00ffcc;
+  font-size: 2.5rem;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: right;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+button {
+  padding: 20px;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #33334d;
+  color: #fff;
+  transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+  background: #444466;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.operator {
+  background: #ff8c00;
+}
+
+.clear {
+  background: #e53935;
+}
+
+.equals {
+  background: #00bcd4;
+}
+
+.theme-toggle {
+  margin-top: 15px;
+  background: #29293d;
+  color: #00ffcc;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dark-theme {
+  background: #121212 !important;
+}
+
+.dark-theme .display {
+  background: #222;
+  color: #f2f2f2;
+}
+
+.dark-theme button {
+  background: #333;
+}
+
+.dark-theme button:hover {
+  background: #444;
+}
+
+  </style>
+</head>
+<body>
+  <div class="calculator" id="calc">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="clear">C</button>
+      <button class="operator">%</button>
+      <button class="operator">^</button>
+      <button class="operator">/</button><button>7</button>
+  <button>8</button>
+  <button>9</button>
+  <button class="operator">*</button>
+
+  <button>4</button>
+  <button>5</button>
+  <button>6</button>
+  <button class="operator">-</button>
+
+  <button>1</button>
+  <button>2</button>
+  <button>3</button>
+  <button class="operator">+</button>
+
+  <button>0</button>
+  <button>.</button>
+  <button class="equals">=</button>
+  <button class="operator">√</button>
+</div>
+<div class="theme-toggle" onclick="toggleTheme()">Toggle Theme</div>
+
+  </div>  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('button');
+    const calculator = document.getElementById('calc');
+    let input = '';
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const val = button.textContent;
+
+        if (val === 'C') {
+          input = '';
+          display.textContent = '0';
+        } else if (val === '=') {
+          try {
+            const expression = input
+              .replace(/\^/g, '**')
+              .replace(/√/g, 'Math.sqrt')
+              .replace(/%/g, '/100');
+            const result = eval(expression);
+            display.textContent = result;
+            input = result.toString();
+          } catch (err) {
+            display.textContent = 'Error';
+            input = '';
+          }
+        } else {
+          input += val;
+          display.textContent = input;
+        }
+      });
+    });
+
+    function toggleTheme() {
+      calculator.classList.toggle('dark-theme');
+    }
+  </script></body>
+</html

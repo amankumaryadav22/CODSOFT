@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creatine</title>
+  <style>
+    :root {
+      --primary: #00e5ff;
+      --glow1: #00e5ff;
+      --glow2: #7c4dff;
+      --bg-dark: #0f0f1a;
+      --card-bg: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Background Bubbles */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 25% 35%, var(--glow1), transparent 40%),
+                  radial-gradient(circle at 75% 65%, var(--glow2), transparent 40%);
+      background-size: cover;
+      animation: animateBg 10s infinite alternate;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    @keyframes animateBg {
+      0% {
+        transform: translate(-10%, -10%) scale(1);
+      }
+      100% {
+        transform: translate(-5%, -5%) scale(1.2);
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(to right, #00e5ff, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1s ease;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 20px auto;
+      color: #ccc;
+      animation: fadeInUp 1.3s ease;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 30px;
+      background: var(--primary);
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #00bcd4;
+      transform: scale(1.05);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #00e5ff, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .feature h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h4 {
+      color: var(--primary);
+    }
+
+    .contact-form {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 600px;
+      margin: 60px auto;
+      backdrop-filter: blur(8px);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #00bcd4;
+      transform: scale(1.03);
+    }
+
+    footer {
+      background: #10101a;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+      from { opacity: 0; }
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+    }
+
+    @media(max-width: 768px) {
+      header h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Creatine</h1>
+    <p>Boost your strength, speed up recovery, and unlock peak performance with our advanced creatine formula.</p>
+    <a href="#contact" class="btn">Contact Us</a>
+  </header>
+
+  <section>
+    <h2 class="section-title">Key Benefits</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Explosive Strength</h3>
+        <p>Push harder and lift heavier with increased ATP support.</p>
+      </div>
+      <div class="feature">
+        <h3>Fast Recovery</h3>
+        <p>Train more consistently with less downtime and muscle fatigue.</p>
+      </div>
+      <div class="feature">
+        <h3>Zero Fillers</h3>
+        <p>Pure, lab-tested creatine — no fluff, just fuel.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">Why Choose Our Creatine?</h2>
+    <p>Micronized for fast absorption. Clinically studied. Backed by athletes and trainers. Whether bulking, cutting, or maintaining, our creatine adapts to your goals.</p>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">FAQs</h2>
+    <div class="faq-item">
+      <h4>When should I take it?</h4>
+      <p>Once daily, pre or post workout — just be consistent!</p>
+    </div>
+    <div class="faq-item">
+      <h4>Any side effects?</h4>
+      <p>None! Stay hydrated and follow recommended dosage.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is it beginner-friendly?</h4>
+      <p>Yes. Our formula suits everyone from gym newcomers to elite pros.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Need help? Email us: support@creatinebrand.com</p>
+    <p>© 2025 Creatine. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

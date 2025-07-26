@@ -1,3 +1,3 @@
 # CODSOFT
-A Calculator 
-PORTFOLIO
+1.A Calculator 
+2.PORTFOLIO
